@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  chat-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/chatdb
+      - SECRET_KEY=your-super-secret-key-change-this-in-production
+    depends_on:
+      - postgres
+    volumes:
+      - ./app:/app/app
+    networks:
+      - chat-network
+
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=chatdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - chat-network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - chat-network
+
+volumes:
+  postgres_data:
+
+networks:
+  chat-network:
+    driver: bridge
