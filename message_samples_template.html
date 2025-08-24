@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Message Samples Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .control-group {
+            margin-bottom: 15px;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .control-group select,
+        .control-group input,
+        .control-group button {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .control-group button {
+            background: #667eea;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .control-group button:hover {
+            background: #5a6fd8;
+        }
+        
+        .message-display {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-height: 100px;
+        }
+        
+        .message-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+        
+        .search-results {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .search-result-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        
+        .search-result-category {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Custom Message Samples</h1>
+            <p>Explore and use various types of message templates for your applications</p>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="categorySelect">Select Category:</label>
+                <select id="categorySelect">
+                    <option value="">Choose a category...</option>
+                    <option value="customer_service">Customer Service</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="notifications">Notifications</option>
+                    <option value="error_messages">Error Messages</option>
+                    <option value="success_messages">Success Messages</option>
+                    <option value="warnings">Warnings</option>
+                    <option value="informational">Informational</option>
+                    <option value="social_media">Social Media</option>
+                    <option value="professional_business">Professional Business</option>
+                    <option value="emergency_urgent">Emergency/Urgent</option>
+                    <option value="multilingual">Multilingual</option>
+                    <option value="accessibility">Accessibility</option>
+                    <option value="seasonal_holiday">Seasonal/Holiday</option>
+                    <option value="technical_support">Technical Support</option>
+                    <option value="feedback_collection">Feedback Collection</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <button onclick="getRandomMessage()">Get Random Message</button>
+            </div>
+            
+            <div class="control-group">
+                <label for="searchInput">Search Messages:</label>
+                <input type="text" id="searchInput" placeholder="Enter keywords to search...">
+                <button onclick="searchMessages()" style="margin-top: 10px;">Search</button>
+            </div>
+        </div>
+        
+        <div class="message-display" id="messageDisplay">
+            <p style="text-align: center; color: #666; margin-top: 30px;">
+                Select a category and click "Get Random Message" to see a sample message
+            </p>
+        </div>
+        
+        <div class="search-results hidden" id="searchResults">
+            <h3>Search Results</h3>
+            <div id="searchResultsContent"></div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCategories">16</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalMessages">64</div>
+                <div class="stat-label">Total Messages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="avgPerCategory">4</div>
+                <div class="stat-label">Avg per Category</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample message data (in a real app, this would come from an API or database)
+        const messageSamples = {
+            customer_service: [
+                "Thank you for contacting our support team. We're here to help you resolve your issue as quickly as possible.",
+                "We apologize for the inconvenience you've experienced. Let me escalate this to our senior team for immediate attention.",
+                "Your feedback is valuable to us. We're working on implementing the improvements you suggested.",
+                "I understand your frustration. Let me check our system to see what went wrong and fix it right away."
+            ],
+            marketing: [
+                "🎉 Special Offer! Get 50% off on all premium features this week only!",
+                "Don't miss out! Our biggest sale of the year starts tomorrow at midnight.",
+                "Transform your business with our revolutionary new platform. Try it free for 30 days!",
+                "Limited time: Upgrade to Pro and unlock unlimited access to all features."
+            ],
+            notifications: [
+                "Your order #12345 has been shipped and is expected to arrive on Friday.",
+                "Security alert: We detected a login attempt from a new device. Was this you?",
+                "Payment reminder: Your subscription will renew automatically on March 15th.",
+                "Welcome back! We've missed you. Here's what's new since your last visit."
+            ],
+            error_messages: [
+                "Something went wrong. Please try again in a few moments.",
+                "We're experiencing technical difficulties. Our team is working to resolve this issue.",
+                "Invalid input detected. Please check your information and try again.",
+                "Service temporarily unavailable. Please check back in 15 minutes."
+            ],
+            success_messages: [
+                "Great job! Your profile has been updated successfully.",
+                "Congratulations! You've completed all the required steps.",
+                "Perfect! Your changes have been saved and applied.",
+                "Welcome aboard! Your account has been created successfully."
+            ],
+            warnings: [
+                "⚠️ Warning: This action cannot be undone. Please confirm before proceeding.",
+                "Caution: You're about to delete important data. Are you sure?",
+                "Notice: Your session will expire in 5 minutes. Please save your work.",
+                "Alert: Multiple failed login attempts detected. Your account may be locked."
+            ],
+            informational: [
+                "Did you know? You can customize your dashboard by dragging and dropping widgets.",
+                "Tip: Use our mobile app for faster access to your account on the go.",
+                "New feature alert: We've added dark mode support for better user experience.",
+                "Maintenance notice: Scheduled system updates will occur tonight from 2-4 AM."
+            ],
+            social_media: [
+                "Just launched our new AI-powered analytics tool! 🚀 What do you think?",
+                "Behind the scenes: Our team working hard to bring you the best experience 💪",
+                "Customer spotlight: Meet Sarah, who increased her productivity by 300% with our platform! ✨",
+                "Tech tip Tuesday: Here's how to optimize your workflow in 3 simple steps 📱"
+            ],
+            professional_business: [
+                "We're pleased to announce the appointment of our new Chief Technology Officer.",
+                "Our quarterly earnings report is now available for shareholders and stakeholders.",
+                "We're expanding our operations to better serve our growing customer base.",
+                "Thank you for your continued partnership. We look forward to another successful year together."
+            ],
+            emergency_urgent: [
+                "URGENT: System maintenance required. Please save your work immediately.",
+                "CRITICAL: Security vulnerability detected. Please update your password now.",
+                "EMERGENCY: Service outage affecting all users. Engineers are working on resolution.",
+                "ALERT: Unusual activity detected on your account. Please verify your identity."
+            ],
+            multilingual: [
+                "Bienvenue! Welcome to our platform. / Bienvenido a nuestra plataforma.",
+                "Merci pour votre patience. / Thank you for your patience. / Gracias por su paciencia.",
+                "Veuillez patienter... / Please wait... / Por favor espere...",
+                "Au revoir! / Goodbye! / ¡Adiós!"
+            ],
+            accessibility: [
+                "Screen reader users: The main navigation menu contains 5 items.",
+                "Keyboard users: Press Tab to navigate through the form fields.",
+                "High contrast mode is now enabled for better visibility.",
+                "Voice commands available. Say 'Help' for a list of commands."
+            ],
+            seasonal_holiday: [
+                "Happy New Year! 🎊 Here's to a successful 2024 together!",
+                "Happy Holidays! 🎄 Our team wishes you joy and prosperity.",
+                "Summer sale is here! ☀️ Beat the heat with our cool deals.",
+                "Back to school special! 📚 Get 25% off on all educational tools."
+            ],
+            technical_support: [
+                "I've identified the issue. It appears to be a configuration problem in your settings.",
+                "Let me walk you through the solution step by step. First, please open your dashboard.",
+                "This is a known issue that our development team is actively working on.",
+                "I've created a support ticket for you. You'll receive updates via email."
+            ],
+            feedback_collection: [
+                "How was your experience today? We'd love to hear your thoughts!",
+                "Rate your satisfaction with our service from 1-5 stars.",
+                "What could we do better? Your suggestions help us improve.",
+                "Thank you for your feedback! We're constantly working to enhance our platform."
+            ]
+        };
+
+        function getRandomMessage() {
+            const category = document.getElementById('categorySelect').value;
+            if (!category) {
+                alert('Please select a category first.');
+                return;
+            }
+
+            const messages = messageSamples[category];
+            if (messages && messages.length > 0) {
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                displayMessage(category, randomMessage);
+            }
+        }
+
+        function displayMessage(category, message) {
+            const display = document.getElementById('messageDisplay');
+            display.innerHTML = `
+                <div class="category-tag">${category.replace('_', ' ').toUpperCase()}</div>
+                <div class="message-text">${message}</div>
+            `;
+        }
+
+        function searchMessages() {
+            const searchTerm = document.getElementById('searchInput').value.trim();
+            if (!searchTerm) {
+                alert('Please enter a search term.');
+                return;
+            }
+
+            const results = [];
+            for (const [category, messages] of Object.entries(messageSamples)) {
+                for (const message of messages) {
+                    if (message.toLowerCase().includes(searchTerm.toLowerCase())) {
+                        results.push({ category, message });
+                    }
+                }
+            }
+
+            displaySearchResults(results, searchTerm);
+        }
+
+        function displaySearchResults(results, searchTerm) {
+            const searchResults = document.getElementById('searchResults');
+            const searchResultsContent = document.getElementById('searchResultsContent');
+
+            if (results.length === 0) {
+                searchResultsContent.innerHTML = '<p>No messages found containing "' + searchTerm + '".</p>';
+            } else {
+                let html = `<p>Found ${results.length} message(s) containing "${searchTerm}":</p>`;
+                results.forEach(result => {
+                    html += `
+                        <div class="search-result-item">
+                            <div class="search-result-category">${result.category.replace('_', ' ').toUpperCase()}</div>
+                            <div>${result.message}</div>
+                        </div>
+                    `;
+                });
+                searchResultsContent.innerHTML = html;
+            }
+
+            searchResults.classList.remove('hidden');
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener for Enter key in search input
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchMessages();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
