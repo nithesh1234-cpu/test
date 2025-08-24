@@ -1,0 +1,63 @@
+name,email,phone,ssn,address,credit_card
+"Alice Carter",alice.carter@example.com,+1-555-000-1111,123-45-6789,"10 River Dr, Boulder, CO 80301",4111 1111 1111 1111
+"Brandon Lee",brandon.lee@example.com,+1-555-000-2222,987-65-4321,"22 Lake St, Madison, WI 53703",5555 5555 5555 4444
+"Cynthia Novak",cynthia.novak@example.com,+1-555-000-3333,111-22-3333,"35 Elm Blvd, Austin, TX 78701",378282246310005
+
+{
+  "records": [
+    {
+      "name": "Alice Carter",
+      "email": "alice.carter@example.com",
+      "phone": "+1-555-000-1111",
+      "ssn": "123-45-6789",
+      "address": "10 River Dr, Boulder, CO 80301",
+      "credit_card": "4111 1111 1111 1111"
+    },
+    {
+      "name": "Brandon Lee",
+      "email": "brandon.lee@example.com",
+      "phone": "+1-555-000-2222",
+      "ssn": "987-65-4321",
+      "address": "22 Lake St, Madison, WI 53703",
+      "credit_card": "5555 5555 5555 4444"
+    },
+    {
+      "name": "Cynthia Novak",
+      "email": "cynthia.novak@example.com",
+      "phone": "+1-555-000-3333",
+      "ssn": "111-22-3333",
+      "address": "35 Elm Blvd, Austin, TX 78701",
+      "credit_card": "3782 822463 10005"
+    }
+  ],
+  "meta": {
+    "description": "SYNTHETIC PII for DLP testing only.",
+    "created": "2025-08-24"
+  }
+}
+
+[SYNTHETIC TEST DATA - PHI-like content for DLP testing]
+
+Patient: Jane Doe
+MRN: MRN-000123
+DOB: 1986-04-12
+Phone: (555) 010-1234
+Address: 123 Maple St, Springfield, IL 62704
+Notes: Presented with migraine headaches, prescribed sumatriptan. Follow-up 2025-09-01.
+
+---
+Patient: John Smith
+MRN: MRN-000456
+DOB: 1979-11-30
+Phone: (555) 010-5678
+Address: 456 Oak Ave, Centerville, CA 95014
+Notes: Type 2 diabetes management. A1C 7.2%. Metformin continued.
+
+---
+Patient: Alex Johnson
+MRN: MRN-000789
+DOB: 1992-02-20
+Phone: (555) 010-9012
+Address: 789 Pine Rd, Lakeview, NY 10001
+Notes: Sprained ankle. RICE protocol advised.
+
