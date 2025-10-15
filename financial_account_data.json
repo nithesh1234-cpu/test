@@ -1,0 +1,46 @@
+[
+  {
+    "client_name": "Agnes McCartney",
+    "accounts": [
+      {
+        "type": "Credit Card",
+        "number": "6011125223709063"
+      }
+    ]
+  },
+  {
+    "client_name": "Sandra Gooch",
+    "accounts": [
+      {
+        "type": "Credit Card",
+        "number": "5116845485280950"
+      }
+    ]
+  },
+  {
+    "client_name": "Alex Hunt",
+    "accounts": [
+      {
+        "type": "Credit Card",
+        "number": "4126246328149117"
+      },
+      {
+        "type": "Bank Account",
+        "number": "30013622322912"
+      }
+    ]
+  },
+  {
+    "client_name": "Ben Lawton",
+    "accounts": [
+      {
+        "type": "Checking Account",
+        "number": "9046127-432"
+      },
+      {
+        "type": "Credit Card",
+        "number": "341303856308768"
+      }
+    ]
+  }
+]
