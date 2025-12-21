@@ -1,0 +1,127 @@
+# DLP PCI Test Data - Validation Dataset
+# This file contains sample payment card industry data for testing DLP systems
+# All credit card numbers use test/dummy numbers that pass Luhn algorithm validation
+
+=== CREDIT CARD NUMBERS - VALID TEST PATTERNS ===
+
+# Visa Cards (starts with 4)
+4111111111111111
+4012888888881881
+4222222222222
+4000000000000002
+4242424242424242
+4444444444444448
+
+# Mastercard (starts with 5)
+5555555555554444
+5105105105105100
+5200828282828210
+5454545454545454
+5555555555554444
+5105105105105100
+
+# American Express (starts with 34 or 37)
+378282246310005
+371449635398431
+343434343434343
+378734493671000
+377777777777777
+341111111111111
+Abhishek
+# Discover (starts with 6)
+6011111111111117
+6011000990139424
+6011601160116611
+6559906559906557
+6011000000000012
+
+# JCB (starts with 35)
+3530111333300000
+3566002020360505
+3589993589993589
+
+=== FORMATTED CREDIT CARDS ===
+4111-1111-1111-1111
+4012 8888 8888 1881
+4222.2222.2222.2222
+5555 5555 5555 4444
+5105-1105-1105-1100
+378282246310005
+3714-496353-98431
+
+=== CREDIT CARDS WITH EXPIRATION AND CVV ===
+Card: 4111111111111111 Exp: 12/25 CVV: 123
+Credit Card Number: 5555555555554444, Expiry: 03/26, Security Code: 456
+VISA: 4012888888881881 MM/YY: 08/24 CVC: 789
+MC 5105105105105100 Valid Thru: 11/25 CVV2: 321
+
+=== BANK ACCOUNT NUMBERS ===
+Routing: 021000021 Account: 1234567890
+ACH: 026009593 Acct: 9876543210
+Wire Transfer: 111000025 Account Number: 5555444433332222
+Bank Account: 121000248-7890123456
+Routing Number: 111000025, Account: 1111222233334444
+
+=== PAYMENT CARD INDUSTRY MERCHANT DATA ===
+Merchant ID: 123456789012345
+Terminal ID: 12345678
+PCI DSS Compliance ID: PCI-DSS-2023-001
+Payment Processor: 987654321098765
+Gateway ID: GTW123456789
+
+=== IBAN AND INTERNATIONAL ACCOUNT NUMBERS ===
+IBAN: GB29NWBK60161331926819
+IBAN: DE89370400440532013000
+SWIFT: CHASUS33XXX
+IBAN: FR1420041010050500013M02606
+BIC: DEUTDEFF500
+
+=== PAYMENT REFERENCES AND TRANSACTION IDS ===
+Transaction ID: TXN123456789012345
+Payment Reference: PAY-2023-001-123456
+Auth Code: 123456
+Batch Number: B20231215001
+Settlement ID: STL789012345678
+
+=== MASKED/REDACTED EXAMPLES ===
+Card ending in 1111
+****-****-****-1111
+XXXX-XXXX-XXXX-4444
+Card: ************1881
+Account: *****3456
+
+=== INVALID PATTERNS FOR VALIDATION ===
+# These should NOT trigger PCI detection
+4111111111111112 (fails Luhn check)
+5555555555554445 (fails Luhn check)
+1234567890123456 (invalid format)
+4111-1111-1111-111X (contains letter)
+Card: 1111 (too short)
+
+=== MIXED CONTENT SCENARIOS ===
+Customer John Doe (SSN: 123-45-6789) paid with card 4111111111111111 on 2023-12-15.
+Email: john.doe@example.com, Phone: (555) 123-4567, Card: 5555555555554444
+Invoice #INV-2023-001 processed via card 4012888888881881 for $150.99
+
+Patient Record:
+Name: Jane Smith
+DOB: 01/15/1980
+Insurance: Blue Cross 987654321
+Payment Method: Visa ending in 1111
+Billing Address: 123 Main St, Anytown, ST 12345
+
+=== PCI COMPLIANCE KEYWORDS ===
+PCI DSS Assessment
+Cardholder Data Environment
+Payment Card Data
+Primary Account Number (PAN)
+Card Verification Value (CVV)
+Personal Identification Number (PIN)
+Secure Payment Processing
+PCI Qualified Security Assessor (QSA)
+Annual PCI Compliance Validation
+
+=== E-COMMERCE TRANSACTION LOGS ===
+[2023-12-15 14:30:22] Payment processed: Card ****1111 Amount: $99.99 Status: Approved
+[2023-12-15 14:31:15] Decline: Card ****4444 Reason: Insufficient funds
+[2023-12-15 14:32:08] Refund: Card ****1881 Amount: $45.50 Transaction: TXN123456
