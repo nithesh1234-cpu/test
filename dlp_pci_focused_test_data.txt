@@ -1,0 +1,42 @@
+# DLP PCI Test Data - Focused Validation Dataset
+# This file contains sample payment card industry data for testing DLP systems
+# All credit card numbers use test/dummy numbers that pass Luhn algorithm validation
+
+=== CREDIT CARDS WITH EXPIRATION AND CVV ===
+
+Card: 4111111111111111 Exp: 12/25 CVV: 123
+
+Credit Card Number: 5555555555554444, Expiry: 03/26, Security Code: 456
+
+VISA: 4012888888881881 MM/YY: 08/24 CVC: 789
+
+MC 5105105105105100 Valid Thru: 11/25 CVV2: 321
+
+
+
+=== BANK ACCOUNT NUMBERS ===
+
+Routing: 021000021 Account: 1234567890
+
+ACH: 026009593 Acct: 9876543210
+
+Wire Transfer: 111000025 Account Number: 5555444433332222
+
+Bank Account: 121000248-7890123456
+
+Routing Number: 111000025, Account: 1111222233334444
+
+
+
+=== PAYMENT CARD INDUSTRY MERCHANT DATA ===
+
+Merchant ID: 123456789012345
+
+Terminal ID: 12345678
+
+PCI DSS Compliance ID: PCI-DSS-2023-001
+
+Payment Processor: 987654321098765
+
+Gateway ID: GTW123456789
+
